@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --color-canvas: #ffffff;
+  --color-canvas-subtle: #f7f7f8;
+  --color-surface: #ffffff;
+  --color-border: #e6e6ea;
+  --color-ink: #17181c;
+  --color-ink-muted: #6b6f76;
+  --color-primary: #1f2937;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #d4af37;
+  --color-accent-foreground: #17181c;
+  --color-success: #1a7f43;
+  --color-success-bg: #e8f5ec;
+  --color-warning: #b5760a;
+  --color-warning-bg: #fdf1de;
+  --color-danger: #c0392b;
+  --color-danger-bg: #fbe9e7;
+  --color-info: #2563eb;
+  --color-info-bg: #e8f0fe;
+  --color-progress: #6d28d9;
+  --color-progress-bg: #efe7fd;
+
+  --font-body:
+    -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo",
+    "Malgun Gothic", sans-serif;
+}
+
+@theme inline {
+  --color-canvas: var(--color-canvas);
+  --color-canvas-subtle: var(--color-canvas-subtle);
+  --color-surface: var(--color-surface);
+  --color-border: var(--color-border);
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-foreground);
+  --color-accent: var(--color-accent);
+  --color-accent-foreground: var(--color-accent-foreground);
+  --color-success: var(--color-success);
+  --color-success-bg: var(--color-success-bg);
+  --color-warning: var(--color-warning);
+  --color-warning-bg: var(--color-warning-bg);
+  --color-danger: var(--color-danger);
+  --color-danger-bg: var(--color-danger-bg);
+  --color-info: var(--color-info);
+  --color-info-bg: var(--color-info-bg);
+  --color-progress: var(--color-progress);
+  --color-progress-bg: var(--color-progress-bg);
+  --font-sans: var(--font-body);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-canvas: #101114;
+    --color-canvas-subtle: #17181c;
+    --color-surface: #1b1c21;
+    --color-border: #2b2d33;
+    --color-ink: #f2f2f3;
+    --color-ink-muted: #a2a5ac;
+    --color-primary: #e9eaec;
+    --color-primary-foreground: #17181c;
+    --color-accent: #e8c96b;
+    --color-accent-foreground: #17181c;
+    --color-success: #4ade80;
+    --color-success-bg: #0f2a1a;
+    --color-warning: #f2b84b;
+    --color-warning-bg: #2c2110;
+    --color-danger: #f3766a;
+    --color-danger-bg: #2c1512;
+    --color-info: #7aa8ff;
+    --color-info-bg: #10203a;
+    --color-progress: #a78bfa;
+    --color-progress-bg: #241b3d;
+  }
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
