@@ -77,8 +77,7 @@ export function SiteFooter() {
               ))}
             </p>
             <p className="mt-3">
-              © {new Date().getFullYear()} {BUSINESS_INFO.companyName}. All rights
-              reserved.
+              © 2024 {BUSINESS_INFO.companyName}. All rights reserved.
             </p>
           </div>
         )}
