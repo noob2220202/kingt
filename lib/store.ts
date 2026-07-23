@@ -311,7 +311,6 @@ function deriveMembers(orders: Order[]): Member[] {
 function buildSeedData(): StoreData {
   const orders = buildSeedOrders();
   return {
-    products: PRODUCTS,
     orders,
     members: deriveMembers(orders),
     admins: [
@@ -358,14 +357,15 @@ async function withStore<T>(fn: (data: StoreData) => Promise<T> | T): Promise<T>
   return task;
 }
 
+// Product catalog is sourced directly from code, never from the persisted
+// JSON snapshot — otherwise catalog edits would never reach a server whose
+// .data/store.json was already seeded once.
 export async function listProducts(): Promise<Product[]> {
-  const data = await readStore();
-  return data.products;
+  return PRODUCTS;
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | undefined> {
-  const data = await readStore();
-  return data.products.find((p) => p.slug === slug);
+  return PRODUCTS.find((p) => p.slug === slug);
 }
 
 export interface CreateOrderInput {
@@ -376,7 +376,7 @@ export interface CreateOrderInput {
 export async function createOrder(input: CreateOrderInput): Promise<Order> {
   return withStore((data) => {
     const items: OrderItem[] = input.items.map(({ productId, quantity }) => {
-      const product = data.products.find((p) => p.id === productId);
+      const product = PRODUCTS.find((p) => p.id === productId);
       if (!product) throw new Error(`Unknown product: ${productId}`);
       return {
         productId: product.id,

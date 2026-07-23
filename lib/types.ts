@@ -69,7 +69,6 @@ export interface AdminUser {
 }
 
 export interface StoreData {
-  products: Product[];
   orders: Order[];
   members: Member[];
   admins: AdminUser[];
