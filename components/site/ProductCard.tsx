@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCart } from "@/lib/cart-context";
 import { useQuickView } from "@/lib/quickview-context";
 import { useToast } from "@/components/Toast";
@@ -8,6 +9,20 @@ import type { Product } from "@/lib/types";
 import { CategoryIcon } from "./CategoryIcon";
 
 export function ProductThumb({ product }: { product: Product }) {
+  if (product.image) {
+    return (
+      <div className="relative h-full w-full overflow-hidden">
+        <Image
+          src={product.image}
+          alt={product.name}
+          fill
+          sizes="(min-width: 1024px) 25vw, 50vw"
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className="relative flex h-full w-full flex-col justify-between overflow-hidden p-[8%] text-white"

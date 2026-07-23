@@ -18,6 +18,8 @@ export interface Product {
   bestseller: boolean;
   colorFrom: string;
   colorTo: string;
+  /** Optional path under /public, e.g. "/products/culture-voucher.jpg". Falls back to the illustrated card mockup when unset. */
+  image?: string;
 }
 
 export type OrderStatus =
