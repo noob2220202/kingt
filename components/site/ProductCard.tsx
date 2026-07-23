@@ -5,16 +5,43 @@ import { useQuickView } from "@/lib/quickview-context";
 import { useToast } from "@/components/Toast";
 import { CATEGORY_LABELS, formatKrw } from "@/lib/format";
 import type { Product } from "@/lib/types";
+import { CategoryIcon } from "./CategoryIcon";
 
 export function ProductThumb({ product }: { product: Product }) {
   return (
     <div
-      className="flex h-full w-full items-center justify-center text-2xl font-bold text-white"
+      className="relative flex h-full w-full flex-col justify-between overflow-hidden p-[8%] text-white"
       style={{
         background: `linear-gradient(135deg, ${product.colorFrom}, ${product.colorTo})`,
       }}
     >
-      {product.name.slice(0, 1)}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          background:
+            "linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.55) 50%, transparent 62%)",
+        }}
+      />
+      <CategoryIcon
+        category={product.category}
+        className="pointer-events-none absolute -bottom-[10%] -right-[10%] h-[65%] w-[65%] text-white/15"
+      />
+
+      <div className="relative flex items-start justify-between">
+        <div className="flex h-[18%] min-h-4 w-[24%] min-w-6 items-center justify-center rounded-[20%] bg-gradient-to-br from-yellow-100 to-yellow-400/90">
+          <div className="h-[55%] w-[70%] rounded-[15%] border border-yellow-600/30" />
+        </div>
+        <CategoryIcon category={product.category} className="h-[22%] min-h-4 w-[22%] min-w-4 text-white/90" />
+      </div>
+
+      <div className="relative flex flex-col gap-0.5">
+        <span className="text-[0.55rem] font-medium uppercase tracking-widest text-white/70">
+          Gift Card
+        </span>
+        <span className="text-sm font-bold leading-tight drop-shadow-sm sm:text-base">
+          {product.name}
+        </span>
+      </div>
     </div>
   );
 }
