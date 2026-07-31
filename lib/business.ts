@@ -10,7 +10,7 @@ export interface BusinessInfo {
 
 export const BUSINESS_INFO: BusinessInfo = {
   companyName: "킹상품권",
-  ceoName: "전민재",
+  ceoName: process.env.BUSINESS_CEO_NAME || "전민재",
   businessRegNo: "755-94-01767",
   address: "부산광역시 사하구 장림번영로 50",
   mailOrderRegNo: null,
