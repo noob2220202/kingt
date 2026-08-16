@@ -1,5 +1,5 @@
 import { InfoPage, InfoSection } from "@/components/site/InfoPage";
-import { BUSINESS_INFO } from "@/lib/business";
+import { BUSINESS_INFO, SITE_NAME } from "@/lib/business";
 
 export const metadata = { title: "회사소개" };
 
@@ -7,13 +7,13 @@ export default function CompanyPage() {
   return (
     <InfoPage
       title="회사소개"
-      lead="킹상품권은 신뢰할 수 있는 상품권 유통 파트너입니다."
+      lead={`${SITE_NAME}은 신뢰할 수 있는 상품권 유통 파트너입니다.`}
     >
       <InfoSection title="비전">
         <p>
-          킹상품권은 &lsquo;가장 투명하고 빠른 상품권 거래&rsquo;를 목표로 2024년
-          설립되었습니다. 문화상품권부터 백화점상품권, 콘텐츠 기프트카드까지 다양한
-          상품을 합리적인 가격에 제공합니다.
+          {SITE_NAME}은 &lsquo;가장 투명하고 빠른 상품권 거래&rsquo;를 목표로{" "}
+          {BUSINESS_INFO.foundedYear}년 설립되었습니다. 문화상품권부터 백화점상품권,
+          콘텐츠 기프트카드까지 다양한 상품을 합리적인 가격에 제공합니다.
         </p>
       </InfoSection>
       <InfoSection title="핵심 가치">

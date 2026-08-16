@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BUSINESS_INFO } from "@/lib/business";
+import { BUSINESS_INFO, SITE_NAME } from "@/lib/business";
 
 const FOOTER_GROUPS: { title: string; links: { href: string; label: string }[] }[] = [
   {
@@ -43,7 +43,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
           <div className="col-span-2 sm:col-span-1">
-            <p className="text-lg font-extrabold">킹상품권</p>
+            <p className="text-lg font-extrabold">{SITE_NAME}</p>
             <p className="mt-2 text-sm text-ink-muted">
               믿을 수 있는 상품권 전문 쇼핑몰
             </p>
@@ -77,7 +77,8 @@ export function SiteFooter() {
               ))}
             </p>
             <p className="mt-3">
-              © 2024 {BUSINESS_INFO.companyName}. All rights reserved.
+              © {BUSINESS_INFO.foundedYear} {BUSINESS_INFO.companyName}. All rights
+              reserved.
             </p>
           </div>
         )}

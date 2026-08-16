@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { SITE_NAME } from "@/lib/business";
 
 export function AdminLoginForm() {
   const router = useRouter();
@@ -38,7 +39,7 @@ export function AdminLoginForm() {
       onSubmit={handleSubmit}
       className="w-full max-w-sm rounded-2xl border border-border bg-surface p-8 shadow-sm"
     >
-      <h1 className="text-xl font-bold">킹상품권 관리자</h1>
+      <h1 className="text-xl font-bold">{SITE_NAME} 관리자</h1>
       <p className="mt-1 text-sm text-ink-muted">관리자 계정으로 로그인해 주세요.</p>
 
       <div className="mt-6 flex flex-col gap-3">

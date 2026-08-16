@@ -1,4 +1,5 @@
 import { InfoPage, InfoSection } from "@/components/site/InfoPage";
+import { SITE_NAME } from "@/lib/business";
 
 export const metadata = { title: "이용약관" };
 
@@ -7,8 +8,9 @@ export default function TermsPage() {
     <InfoPage title="이용약관">
       <InfoSection title="제1조 (목적)">
         <p>
-          본 약관은 킹상품권(이하 &lsquo;회사&rsquo;)이 제공하는 상품권 판매 서비스의
-          이용조건 및 절차, 회원과 회사의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.
+          본 약관은 {SITE_NAME}(이하 &lsquo;회사&rsquo;)이 제공하는 상품권 판매
+          서비스의 이용조건 및 절차, 회원과 회사의 권리·의무 및 책임사항을 규정함을
+          목적으로 합니다.
         </p>
       </InfoSection>
       <InfoSection title="제2조 (서비스의 제공)">

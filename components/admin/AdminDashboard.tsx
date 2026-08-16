@@ -12,6 +12,7 @@ import {
   formatKrw,
 } from "@/lib/format";
 import type { Order, OrderStatus } from "@/lib/types";
+import { SITE_NAME } from "@/lib/business";
 
 interface Stats {
   totalOrders: number;
@@ -118,7 +119,7 @@ export function AdminDashboard({ adminEmail }: { adminEmail: string }) {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-xl font-bold">킹상품권 관리자</h1>
+          <h1 className="text-xl font-bold">{SITE_NAME} 관리자</h1>
           <p className="text-sm text-ink-muted">{adminEmail}</p>
         </div>
         <button

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "@/lib/cart-context";
 import { CATEGORY_LABELS } from "@/lib/format";
+import { SITE_NAME } from "@/lib/business";
 
 const NAV_LINKS = [
   { href: "/", label: "홈" },
@@ -30,7 +31,7 @@ export function SiteHeader() {
             ☰
           </button>
           <Link href="/" className="text-xl font-extrabold tracking-tight">
-            킹상품권
+            {SITE_NAME}
           </Link>
           <nav className="hidden items-center gap-6 text-sm font-medium sm:flex">
             {NAV_LINKS.map((link) => (

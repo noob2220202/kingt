@@ -3,6 +3,7 @@ import { listProducts } from "@/lib/store";
 import { CATEGORY_LABELS } from "@/lib/format";
 import { ProductCard } from "@/components/site/ProductCard";
 import { NewsletterForm } from "@/components/site/NewsletterForm";
+import { SITE_NAME } from "@/lib/business";
 import type { ProductCategory } from "@/lib/types";
 
 const CATEGORY_ICONS: Record<ProductCategory, string> = {
@@ -26,7 +27,7 @@ export default async function HomePage() {
           </span>
           <h1 className="text-3xl font-extrabold leading-tight sm:text-5xl">
             필요한 상품권,
-            <br className="sm:hidden" /> 킹상품권에서 가장 합리적으로
+            <br className="sm:hidden" /> {SITE_NAME}에서 가장 합리적으로
           </h1>
           <p className="max-w-xl text-ink-muted">
             문화상품권부터 백화점상품권, 콘텐츠 기프트카드까지 — 실시간 발송과 투명한

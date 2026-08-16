@@ -1,4 +1,5 @@
 import { InfoPage, InfoSection } from "@/components/site/InfoPage";
+import { SITE_NAME } from "@/lib/business";
 
 export const metadata = { title: "채용" };
 
@@ -10,7 +11,7 @@ const POSITIONS = [
 
 export default function CareersPage() {
   return (
-    <InfoPage title="채용" lead="킹상품권과 함께 성장할 동료를 찾습니다.">
+    <InfoPage title="채용" lead={`${SITE_NAME}과 함께 성장할 동료를 찾습니다.`}>
       <InfoSection title="채용 포지션">
         <div className="flex flex-col divide-y divide-border rounded-xl border border-border">
           {POSITIONS.map((p) => (
