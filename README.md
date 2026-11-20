@@ -96,4 +96,5 @@ DNS only(회색 구름)로 둬야 인증서가 자동 발급됩니다.
 (예: `store-9029.json`)을 바꾸고, `Caddyfile.snippet`에 도메인 블록을 추가합니다.
 `STORE_FILE`을 사이트별로 다르게 주면 주문/회원 데이터가 분리됩니다.
 
-운영 환경에서는 `ADMIN_SESSION_SECRET` 값을 반드시 실제 비밀 값으로 교체하세요.
+설치 폴더: `/var/www/no1.ticketking.store`. `ADMIN_SESSION_SECRET`은 그 폴더의
+`.env.production`에 둡니다(`openssl rand -hex 32`).

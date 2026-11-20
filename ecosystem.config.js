@@ -18,7 +18,8 @@ module.exports = {
       env: {
         NODE_ENV: "production",
         PORT: 9028,
-        ADMIN_SESSION_SECRET: "change-this-to-a-long-random-value",
+        // ADMIN_SESSION_SECRET 은 여기 말고 체크아웃 루트의 .env.production 에 둡니다
+        // (여기 적으면 .env.production 값을 덮어씀).
         // STORE_FILE 미지정 시 .data/store.json (기존 데이터 그대로 사용)
         // 대표자/연락처 기본값은 lib/business.ts 에 있습니다(정적 페이지는 빌드 시점 값이 들어가므로
         // 코드 기본값으로 둠). 바꿀 땐 lib/business.ts 를 고치고 다시 빌드하세요.
