@@ -27,6 +27,7 @@ export default function CompanyPage() {
         <ul className="flex flex-col gap-1">
           <li>상호: {BUSINESS_INFO.companyName}</li>
           <li>대표자: {BUSINESS_INFO.ceoName}</li>
+          {BUSINESS_INFO.csPhone && <li>연락처: {BUSINESS_INFO.csPhone}</li>}
           <li>사업자등록번호: {BUSINESS_INFO.businessRegNo}</li>
           <li>주소: {BUSINESS_INFO.address}</li>
           <li>업태 / 종목: 서비스업 / 상품권매매</li>

@@ -3,7 +3,8 @@
 #   sudo systemctl reload caddy
 # (Cloudflare 프록시는 회색 구름(DNS only)이어야 Caddy가 인증서를 자동 발급합니다.)
 
-# 사이트 1: 킹상품권 (대표자 전민재) — 도메인을 실제 도메인으로 바꾸세요.
-kingticket.example.com {
+# 사이트 1: 킹상품권 (대표자 정무성, 010-2245-1756)
+# DNS: no1 A 레코드 -> 119.205.221.171 (ticketking.store의 서브도메인)
+no1.ticketking.store {
     reverse_proxy 127.0.0.1:9028
 }

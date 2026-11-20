@@ -10,7 +10,7 @@
 module.exports = {
   apps: [
     {
-      // 사이트 1: 킹상품권 (대표자 전민재)
+      // 사이트 1: no1.ticketking.store - 킹상품권 (대표자 정무성, 010-2245-1756)
       name: "king-ticket-shop",
       script: "node_modules/next/dist/bin/next",
       args: "start -H 127.0.0.1",
@@ -20,7 +20,8 @@ module.exports = {
         PORT: 9028,
         ADMIN_SESSION_SECRET: "change-this-to-a-long-random-value",
         // STORE_FILE 미지정 시 .data/store.json (기존 데이터 그대로 사용)
-        // BUSINESS_CEO_NAME: "전민재",
+        // 대표자/연락처 기본값은 lib/business.ts 에 있습니다(정적 페이지는 빌드 시점 값이 들어가므로
+        // 코드 기본값으로 둠). 바꿀 땐 lib/business.ts 를 고치고 다시 빌드하세요.
       },
     },
   ],

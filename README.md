@@ -77,7 +77,7 @@ E2E는 Playwright로 다음 시나리오를 직접 실행해 확인했습니다 
 
 | 사이트 | pm2 이름 | 포트 | 도메인 |
 | --- | --- | --- | --- |
-| 1. 킹상품권 | `king-ticket-shop` | 9028 | `Caddyfile.snippet`에 설정 |
+| 1. 킹상품권 (대표자 정무성, 010-2245-1756) | `king-ticket-shop` | 9028 | `no1.ticketking.store` |
 
 ```bash
 git pull
@@ -88,7 +88,8 @@ pm2 save
 ```
 
 Caddy: `Caddyfile.snippet`의 블록을 `/etc/caddy/Caddyfile`에 추가하고
-(도메인을 실제 값으로 변경) `sudo systemctl reload caddy`. Cloudflare를 쓰면
+`sudo systemctl reload caddy`. DNS는 `no1.ticketking.store` A 레코드를
+`119.205.221.171`로 연결합니다. Cloudflare를 쓰면
 DNS only(회색 구름)로 둬야 인증서가 자동 발급됩니다.
 
 사이트 추가: `ecosystem.config.js`의 앱 블록을 복사해 `name`/`PORT`/`STORE_FILE`
