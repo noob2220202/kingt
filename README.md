@@ -70,17 +70,29 @@ E2E는 Playwright로 다음 시나리오를 직접 실행해 확인했습니다 
 검색, 상태 드롭다운 변경 + 토스트, 삭제 confirm + 토스트, 로그아웃 후
 재인증 요구, 그리고 실제 체크아웃 주문이 어드민에 반영되는 흐름까지 확인.
 
-## 배포 (pm2)
+## 배포 (pm2 + Caddy, 복드림과 같은 방식)
+
+사이트마다 pm2 앱 하나 + 고유 포트 하나를 띄우고, 도메인/HTTPS는 Caddy가
+`reverse_proxy`로 연결합니다. 앱은 `127.0.0.1:<PORT>`에서만 듣습니다.
+
+| 사이트 | pm2 이름 | 포트 | 도메인 |
+| --- | --- | --- | --- |
+| 1. 킹상품권 | `king-ticket-shop` | 9028 | `Caddyfile.snippet`에 설정 |
 
 ```bash
 git pull
 npm install
 npm run build
-pm2 restart ecosystem.config.js
-# 최초 배포라면: pm2 start ecosystem.config.js
+pm2 restart ecosystem.config.js   # 최초 배포라면: pm2 start ecosystem.config.js
+pm2 save
 ```
 
-`ecosystem.config.js`는 `next start -p 3000`으로 프로덕션 서버를 기동하며,
-`NODE_ENV=production`과 `ADMIN_SESSION_SECRET`을 환경변수로 주입합니다.
-운영 환경에서는 `ecosystem.config.js`의 `ADMIN_SESSION_SECRET` 값을 반드시
-실제 비밀 값으로 교체하세요.
+Caddy: `Caddyfile.snippet`의 블록을 `/etc/caddy/Caddyfile`에 추가하고
+(도메인을 실제 값으로 변경) `sudo systemctl reload caddy`. Cloudflare를 쓰면
+DNS only(회색 구름)로 둬야 인증서가 자동 발급됩니다.
+
+사이트 추가: `ecosystem.config.js`의 앱 블록을 복사해 `name`/`PORT`/`STORE_FILE`
+(예: `store-9029.json`)을 바꾸고, `Caddyfile.snippet`에 도메인 블록을 추가합니다.
+`STORE_FILE`을 사이트별로 다르게 주면 주문/회원 데이터가 분리됩니다.
+
+운영 환경에서는 `ADMIN_SESSION_SECRET` 값을 반드시 실제 비밀 값으로 교체하세요.

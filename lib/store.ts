@@ -12,8 +12,11 @@ import type {
   StoreData,
 } from "./types";
 
+// 같은 코드로 여러 사이트(포트)를 띄울 때 데이터가 섞이지 않도록, 사이트별로
+// STORE_FILE 환경변수(.data 아래 파일명)를 다르게 줄 수 있습니다
+// (ecosystem.config.js 참고). 지정하지 않으면 기존 .data/store.json 을 씁니다.
 const DATA_DIR = path.join(process.cwd(), ".data");
-const DATA_FILE = path.join(DATA_DIR, "store.json");
+const DATA_FILE = path.join(DATA_DIR, path.basename(process.env.STORE_FILE || "store.json"));
 
 const ORDER_PREFIX = "KG";
 export const ADMIN_SEED_EMAIL = "admin@king-gift.local";

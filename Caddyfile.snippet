@@ -1,0 +1,9 @@
+# 킹상품권 - Caddy 리버스 프록시 설정 (복드림 상품권과 같은 방식)
+# /etc/caddy/Caddyfile 에 아래 블록을 추가한 뒤 reload 하세요.
+#   sudo systemctl reload caddy
+# (Cloudflare 프록시는 회색 구름(DNS only)이어야 Caddy가 인증서를 자동 발급합니다.)
+
+# 사이트 1: 킹상품권 (대표자 전민재) — 도메인을 실제 도메인으로 바꾸세요.
+kingticket.example.com {
+    reverse_proxy 127.0.0.1:9028
+}
