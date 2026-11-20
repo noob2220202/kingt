@@ -3,13 +3,15 @@ import { BUSINESS_INFO } from "@/lib/business";
 
 export const metadata = { title: "매장찾기" };
 
-const OFFICES = [
-  {
-    name: "본사 (부산)",
-    address: BUSINESS_INFO.address ?? "",
-    hours: "평일 09:00 - 18:00",
-  },
-];
+const OFFICES = BUSINESS_INFO.address
+  ? [
+      {
+        name: "본사",
+        address: BUSINESS_INFO.address,
+        hours: "평일 09:00 - 18:00",
+      },
+    ]
+  : [];
 
 export default function StoresPage() {
   return (

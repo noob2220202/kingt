@@ -25,10 +25,16 @@ export default function CompanyPage() {
       </InfoSection>
       <InfoSection title="사업자 정보">
         <ul className="flex flex-col gap-1">
-          <li>상호: {BUSINESS_INFO.companyName}</li>
-          <li>대표자: {BUSINESS_INFO.ceoName}</li>
-          <li>사업자등록번호: {BUSINESS_INFO.businessRegNo}</li>
-          <li>주소: {BUSINESS_INFO.address}</li>
+          {BUSINESS_INFO.companyName && <li>상호: {BUSINESS_INFO.companyName}</li>}
+          {BUSINESS_INFO.ceoName && <li>대표자: {BUSINESS_INFO.ceoName}</li>}
+          {BUSINESS_INFO.businessRegNo && (
+            <li>사업자등록번호: {BUSINESS_INFO.businessRegNo}</li>
+          )}
+          {BUSINESS_INFO.mailOrderRegNo && (
+            <li>통신판매업신고번호: {BUSINESS_INFO.mailOrderRegNo}</li>
+          )}
+          {BUSINESS_INFO.address && <li>주소: {BUSINESS_INFO.address}</li>}
+          {BUSINESS_INFO.csPhone && <li>고객센터: {BUSINESS_INFO.csPhone}</li>}
           <li>업태 / 종목: 서비스업 / 상품권매매</li>
         </ul>
       </InfoSection>
